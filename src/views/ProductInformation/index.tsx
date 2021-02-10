@@ -4,7 +4,7 @@ import step from './step1.png';
 
 class Step1 extends Component {
     render() {
-        return <img src={step}/>
+        return <img src={step} alt="First step"/>
     }
 }
 
