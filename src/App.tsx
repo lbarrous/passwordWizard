@@ -2,6 +2,7 @@ import React, { Dispatch } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from './store';
 import { PasswordAction, StepAction } from './store/types';
+import { PasswordWizardContainer } from './containers/PasswordWizardContainer';
 
 const App = () => {
     const { password } = useSelector((state: AppState) => state.password);
@@ -11,8 +12,6 @@ const App = () => {
     const passwordDispatch = useDispatch<Dispatch<PasswordAction>>();
     const stepDispatch = useDispatch<Dispatch<StepAction>>();
 
-    return (
-        <div>Hello</div>
-    );
+    return <PasswordWizardContainer/>
 }
 export default App;
