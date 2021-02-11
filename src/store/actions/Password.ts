@@ -1,3 +1,4 @@
+import { Password } from './../types.d';
 export const STORE_PASSWORD = 'STORE_PASSWORD';
 
 interface StorePasswordActionType {

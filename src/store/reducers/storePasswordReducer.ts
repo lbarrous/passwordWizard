@@ -1,4 +1,5 @@
 import { PasswordActionTypes } from "../actions/Password";
+import { Password } from "../types";
 
 type PasswordState = {
   password: Password;

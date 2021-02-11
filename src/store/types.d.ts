@@ -1,28 +1,30 @@
-interface Password {
+export interface Password {
   pass: string;
   hint?: string;
 }
 
-type PasswordState = {
+export type PasswordState = {
   password: Password;
 };
 
-type PasswordAction = {
+export type PasswordAction = {
   type: string;
   password: Password;
 };
 
-enum Step {
-  STEP1 = "STEP1",
-  STEP2 = "STEP2",
-  STEP3 = "STEP3"
-}
+export const StepValues = {
+  STEP1: "STEP1",
+  STEP2: "STEP2",
+  STEP3: "STEP3"
+} as const;
 
-type StepState = {
+export type Step = typeof StepValues[keyof typeof StepValues];
+
+export type StepState = {
   currentStep: Step;
 };
 
-type StepAction = {
+export type StepAction = {
   type: string;
   step: Step;
 };
