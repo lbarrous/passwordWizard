@@ -1,17 +1,30 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { AppState } from "../store/reducers/rootReducer";
-import { StepValues, Step } from "../store/types.d";
+import ButtonsFooter from "../components/ButtonsGroup/ButtonsGroup";
 import StepProgressBar from "../components/ProgressBar/ProgressBar";
+import { AppState } from "../store/reducers/rootReducer";
+import { Step, StepValues } from "../store/types.d";
+import "../styles/base.scss";
+import FormStep from "../views/Form/FormStep";
+import ProductInformationStep from "../views/ProductInformation/ProductInformationStep";
 
 export const PasswordWizardContainer = () => {
-  const { currentStep }: { currentStep: Step } = useSelector((state: AppState) => state.step);
+  const { currentStep }: { currentStep: Step } = useSelector(
+    (state: AppState) => state.step
+  );
 
   const StepMapping = {
-    [StepValues.STEP1]: () => (<StepProgressBar/>),
-    [StepValues.STEP2]: () => (<div>Step2</div>),
-    [StepValues.STEP3]: () => (<div>Step3</div>)
+    [StepValues.STEP1]: () => <ProductInformationStep />,
+    [StepValues.STEP2]: () => <FormStep/>,
+    [StepValues.STEP3]: () => <div>Step3</div>
   };
-  return StepMapping[currentStep]();
 
+  return (
+    <div className={"PasswordWizardContainer"}>
+      <StepProgressBar />
+      <div className="arrow"></div>
+      {StepMapping[currentStep]()}
+      <ButtonsFooter/>
+    </div>
+  );
 };

@@ -13,9 +13,9 @@ export type PasswordAction = {
 };
 
 export const StepValues = {
-  STEP1: "STEP1",
-  STEP2: "STEP2",
-  STEP3: "STEP3"
+  STEP1: 0,
+  STEP2: 1,
+  STEP3: 2
 } as const;
 
 export type Step = typeof StepValues[keyof typeof StepValues];

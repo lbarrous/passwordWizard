@@ -1,11 +1,10 @@
-import React, {Component} from "react";
-
-import OpenbankLogo from './assets/img/key_openbank.png';
-import Step1 from "./views/ProductInformation";
-import Step2 from "./views/Form";
-import Step3 from "./views/Feedback";
-
+import React, { Component } from "react";
 import "./App.scss";
+import OpenbankLogo from './assets/img/key_openbank.png';
+import Step3 from "./views/Feedback";
+import Step2 from "./views/Form/FormStep";
+
+
 
 class App extends Component {
 
@@ -13,7 +12,7 @@ class App extends Component {
       return(
           <div className="App">
               <main className="App-content">
-                  <h1>Bienvenid@ al test de <img src={OpenbankLogo} className="App-header-logo" alt={"openbank-logo"} /></h1>
+                  <h2>Bienvenid@ al test de <img src={OpenbankLogo} className="App-header-logo" alt={"openbank-logo"} /></h2>
                   <h3>Objetivo </h3>
                   <p>Lo que pretendemos con la prueba es evaluar las capacidades técnicas respecto a un desarrollador web o front, especialmente en el area de React y aplicaciones SPA. Con esta prueba se pretende valorar muchos aspectos del stack tecnologico de un desarrollador del ambito web, como arquitectura, uso de patrones de diseño, maquetación, técnicas de programación, documentación, conocimentos de Javascript, HTML y CSS, entre otros. </p>
                   <h3>¿En que consiste?</h3>
@@ -22,7 +21,6 @@ class App extends Component {
                   <ul>
                       <li>
                           <h4>1º Pantalla de información de la contraseña</h4>
-                          <Step1/>
                           <p>En esta pantalla el usuario que entra a la aplicación debe entender que está contratando. Deberias darle la bienvenida al producto "Cuenta Corriente OpenClose" y explicarle que vas a demandarle sus datos en los siguientes pasos. Es una pantalla con una explicación, nombre del producto y botones de wizard de avanzar.</p>
                           <h5>Esta pantalla será el paso numero uno del wizard y tiene que tener un check (que tiene que pulsar) que habilite el boton de avanzar, en el que se le pregunta al usuario si tiene mayoría de edad y que acepta que tratemos sus datos según la politica de protección de datos.</h5>
                       </li>

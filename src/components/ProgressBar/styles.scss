@@ -1,12 +1,22 @@
 .progress-bar-wrapper {
-  padding: 2rem;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem 1rem 2rem;
+  background: rgb(196, 196, 198);
+  background: linear-gradient(
+    0deg,
+    rgba(196, 196, 198, 1) 0%,
+    rgba(226, 226, 240, 1) 35%,
+    rgba(207, 210, 210, 1) 100%
+  );
   & * {
     box-sizing: border-box;
   }
 }
 
 .step-progress-bar {
+  width: 15%;
   margin: 0 0 1rem 0;
   padding: 0;
   display: flex;
@@ -25,7 +35,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 75%;
     height: 3px;
     width: 100%;
     right: 50%;
