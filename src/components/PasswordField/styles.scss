@@ -1,4 +1,4 @@
-.ReactPasswordStrength {
+.PasswordField {
     border: 1px solid #c6c6c6;
     box-sizing: border-box;
     color: #090809;
@@ -8,7 +8,15 @@
     position: relative;
   }
 
-  .ReactPasswordStrength-input {
+  .PasswordField-container {
+    margin: 2rem 2rem 2rem 0;
+  }
+
+  .PasswordField-label {
+      font-weight: bold;
+  }
+
+  .PasswordField-input {
     border: none;
     box-sizing: border-box;
     font-size: 18px;
@@ -16,10 +24,10 @@
     width: calc(85% - 28px);
   }
 
-  .ReactPasswordStrength-input:not(:focus).is-password-invalid { color: #D1462F; }
-  .ReactPasswordStrength-input:focus { outline: none; }
+  .PasswordField-input:not(:focus).is-password-invalid { color: #D1462F; }
+  .PasswordField-input:focus { outline: none; }
 
-  .ReactPasswordStrength-strength-desc {
+  .PasswordField-strength-desc {
     color: transparent;
     font-style: italic;
     padding: 14px 12px;
@@ -29,13 +37,13 @@
     width: 15%;
   }
 
-  .ReactPasswordStrength.is-strength-0 .ReactPasswordStrength-strength-desc { color: #D1462F; }
-  .ReactPasswordStrength.is-strength-1 .ReactPasswordStrength-strength-desc { color: #D1462F; }
-  .ReactPasswordStrength.is-strength-2 .ReactPasswordStrength-strength-desc { color: #57B8FF; }
-  .ReactPasswordStrength.is-strength-3 .ReactPasswordStrength-strength-desc { color: #57B8FF; }
-  .ReactPasswordStrength.is-strength-4 .ReactPasswordStrength-strength-desc { color: #2FBF71; }
+  .PasswordField.is-strength-0 .PasswordField-strength-desc { color: #D1462F; }
+  .PasswordField.is-strength-1 .PasswordField-strength-desc { color: #D1462F; }
+  .PasswordField.is-strength-2 .PasswordField-strength-desc { color: #57B8FF; }
+  .PasswordField.is-strength-3 .PasswordField-strength-desc { color: #57B8FF; }
+  .PasswordField.is-strength-4 .PasswordField-strength-desc { color: #2FBF71; }
 
-  .ReactPasswordStrength-strength-bar {
+  .PasswordField-strength-bar {
     box-sizing: border-box;
     height: 2px;
     position: relative; top: 1px; right: 1px;
@@ -43,27 +51,27 @@
     width: 0;
   }
 
-  .ReactPasswordStrength.is-strength-0 .ReactPasswordStrength-strength-bar {
+  .PasswordField.is-strength-0 .PasswordField-strength-bar {
     background: #D1462F;
     width: 20%;
   }
 
-  .ReactPasswordStrength.is-strength-1 .ReactPasswordStrength-strength-bar {
+  .PasswordField.is-strength-1 .PasswordField-strength-bar {
     background: #D1462F;
     width: 40%;
   }
 
-  .ReactPasswordStrength.is-strength-2 .ReactPasswordStrength-strength-bar {
+  .PasswordField.is-strength-2 .PasswordField-strength-bar {
     background: #57B8FF;
     width: 60%;
   }
 
-  .ReactPasswordStrength.is-strength-3 .ReactPasswordStrength-strength-bar {
+  .PasswordField.is-strength-3 .PasswordField-strength-bar {
     background: #57B8FF;
     width: 80%;
   }
 
-  .ReactPasswordStrength.is-strength-4 .ReactPasswordStrength-strength-bar {
+  .PasswordField.is-strength-4 .PasswordField-strength-bar {
     background: #2FBF71;
     width: calc(100% + 2px);
   }

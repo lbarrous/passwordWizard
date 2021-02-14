@@ -3,7 +3,7 @@ import { StepState, StepValues } from "../types.d";
 import { createReducer } from "./reducerFactory";
 
 const initialState: StepState = {
-  currentStep: StepValues.STEP2
+  currentStep: StepValues.STEP3
 };
 
 const changeStep = (state: StepState, action: StepActionTypes) => {

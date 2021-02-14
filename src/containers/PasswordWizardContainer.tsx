@@ -5,6 +5,7 @@ import StepProgressBar from "../components/ProgressBar/ProgressBar";
 import { AppState } from "../store/reducers/rootReducer";
 import { Step, StepValues } from "../store/types.d";
 import "../styles/base.scss";
+import FeedbackStep from "../views/Feedback/FeedbackStep";
 import FormStep from "../views/Form/FormStep";
 import ProductInformationStep from "../views/ProductInformation/ProductInformationStep";
 
@@ -16,7 +17,7 @@ export const PasswordWizardContainer = () => {
   const StepMapping = {
     [StepValues.STEP1]: () => <ProductInformationStep />,
     [StepValues.STEP2]: () => <FormStep/>,
-    [StepValues.STEP3]: () => <div>Step3</div>
+    [StepValues.STEP3]: () => <FeedbackStep/>
   };
 
   return (
