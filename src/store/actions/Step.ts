@@ -1,8 +1,23 @@
-import { Step } from './../types.d';
-export const CHANGE_STEP = 'CHANGE_STEP';
+export const NEXT_STEP = 'NEXT_STEP';
+export const PREVIOUS_STEP = 'PREVIOUS_STEP';
 
-interface ChangeStepActionType {
-  type: typeof CHANGE_STEP;
-  payload: Step;
+interface NextStepActionType {
+  type: typeof NEXT_STEP;
 }
-export type StepActionTypes = ChangeStepActionType;
+interface PreviousStepActionType {
+  type: typeof PREVIOUS_STEP;
+}
+
+export type StepActionTypes = NextStepActionType | PreviousStepActionType;
+
+export const nextStep = (): StepActionTypes => {
+  return {
+    type: NEXT_STEP,
+  };
+};
+
+export const previousStep = (): StepActionTypes => {
+  return {
+    type: PREVIOUS_STEP,
+  };
+};

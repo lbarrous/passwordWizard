@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
-import passwordReducer from "./storePasswordReducer";
+import loadingReducer from "./loadingReducer";
 import stepReducer from "./stepReducer";
+import passwordReducer from "./storePasswordReducer";
 
 const rootReducer = combineReducers({
   password: passwordReducer,
-  step: stepReducer
+  step: stepReducer,
+  loading: loadingReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

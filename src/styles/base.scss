@@ -40,8 +40,20 @@ $black: #000000;
     border-right: 14px dotted transparent;
     left: -15px;
     top: 2px;
-    margin-left: 55%;
+
     z-index: 1;
     position: relative;
     margin-top: -12px;
+
+    &.step1 {
+        margin-left: 45%;
+    }
+
+    &.step2 {
+        margin-left: 50%;
+    }
+
+    &.step3 {
+        margin-left: 55%;
+    }
 }

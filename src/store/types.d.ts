@@ -28,3 +28,12 @@ export type StepAction = {
   type: string;
   step: Step;
 };
+
+export type LoadingState = {
+  isLoading: boolean;
+};
+
+export type LoadingAction = {
+  type: string;
+  loading: boolean;
+};

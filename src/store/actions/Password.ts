@@ -6,3 +6,10 @@ interface StorePasswordActionType {
   payload: Password;
 }
 export type PasswordActionTypes = StorePasswordActionType;
+
+export const storePassword = (password: Password): PasswordActionTypes => {
+  return {
+    type: STORE_PASSWORD,
+    payload: password
+  };
+};

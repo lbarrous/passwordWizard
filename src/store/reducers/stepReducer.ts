@@ -1,18 +1,27 @@
-import { StepActionTypes } from "../actions/Step";
+import { getStepFromNumber } from "../../utils";
+import { NEXT_STEP, PREVIOUS_STEP, StepActionTypes } from "../actions/Step";
 import { StepState, StepValues } from "../types.d";
 import { createReducer } from "./reducerFactory";
 
 const initialState: StepState = {
-  currentStep: StepValues.STEP3
+  currentStep: StepValues.STEP1
 };
 
-const changeStep = (state: StepState, action: StepActionTypes) => {
-  //TODO: Change step and return state
-  return state;
+const nextStep = (state: StepState, action: StepActionTypes) => {
+  return {
+    currentStep: getStepFromNumber(state.currentStep + 1)
+  }
+};
+
+const previousStep = (state: StepState, action: StepActionTypes) => {
+  return {
+    currentStep: getStepFromNumber(state.currentStep - 1)
+  }
 };
 
 const strategies = {
-  CHANGE_STEP: changeStep,
+  [NEXT_STEP]: nextStep,
+  [PREVIOUS_STEP]: previousStep,
 };
 
 type TypeOfStrategies = typeof strategies;
