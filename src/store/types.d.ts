@@ -18,7 +18,6 @@ export type Step = typeof StepValues[keyof typeof StepValues];
 
 export type StepState = {
   currentStep: Step;
-  isValidated: boolean;
 };
 
 export type LoadingState = {
@@ -26,6 +25,7 @@ export type LoadingState = {
   responseFromServer: number;
 };
 
-export interface responseFromServer {
-  status: number
+export interface ValidationObject {
+  isValid: boolean;
+  associatedErrors?: string[];
 }

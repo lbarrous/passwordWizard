@@ -1,4 +1,4 @@
-.buttons-group-wrapper {
+.ButtonGroup {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +11,17 @@
   border: 1px #e0e0e0;
   border-style: solid;
 
-  &-button {
+  &.step3 {
+    justify-content: flex-end;
+  }
+
+  %heading {
+    background-color: blanchedalmond;
+    color: brown;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  @mixin Button {
     padding: 1rem 1.5rem 1rem 1.5rem;
     border: 1px;
     border-radius: 3px;
@@ -20,8 +30,19 @@
     background-color: #002b45;
     cursor: pointer;
   }
+
+  &__Button {
+    @include Button;
+
+    &--disabled {
+      @include Button;
+      border: 1px solid #999999;
+      background-color: #cccccc;
+      color: #666666;
+      cursor: auto;
+    }
+  }
   & * {
     box-sizing: border-box;
   }
 }
-

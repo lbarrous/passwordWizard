@@ -1,5 +1,6 @@
 import { useState } from "react";
 import zxcvbn from "zxcvbn";
+import { isPasswordTooShort } from "../../../utils";
 
 export const usePassword = (
   currentPassword: string,
@@ -17,7 +18,7 @@ export const usePassword = (
 
     // always sets a zero score when min length requirement is not met
     // avoids unnecessary zxcvbn computations (CPU intensive)
-    if (isTooShort(password, minLength) === false) {
+    if (!isPasswordTooShort(password, minLength)) {
       result = zxcvbn(password);
       score = result.score;
     }
@@ -26,9 +27,6 @@ export const usePassword = (
     setIsValid(regex.test(password));
     setPassword(password);
   };
-
-  const isTooShort = (password: string, minLength: number) =>
-  password.length < minLength;
 
   return {
     handleChange,

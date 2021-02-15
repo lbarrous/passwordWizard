@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.scss";
 import OpenbankLogo from './assets/img/key_openbank.png';
-import Step3 from "./views/Feedback";
-
 
 
 class App extends Component {
@@ -34,8 +32,6 @@ class App extends Component {
                       </li>
                       <li>
                           <h4>3º Pantalla de feedback</h4>
-                          <Step3 success/>
-                          <Step3/>
                           <p>Esta pantalla unicamente mostrará un icono de Ok/Ko informando al usuario del resultado, además de un boton que reinicie el proceso.</p>
                           <p>Se provee de un mock en el services/api desde el cual se puede imitar el comportamiento de una llamada asíncrona. (Checkear para ver caso de error)</p>
                           <h5>Debe ser una pantalla que cumpla cualquier de los requisitos, tanto un KO como un OK, de manera dinamica, de manera que, sea parametrizable en base al resultado de la creación.</h5>

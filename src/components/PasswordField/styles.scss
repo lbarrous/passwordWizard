@@ -1,22 +1,21 @@
 .PasswordField {
-    border: 1px solid #c6c6c6;
-    box-sizing: border-box;
-    color: #090809;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1;
-    position: relative;
-  }
+  border: 1px solid #c6c6c6;
+  box-sizing: border-box;
+  color: #090809;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  position: relative;
 
-  .PasswordField-container {
+  &__Wrapper {
     margin: 2rem 2rem 2rem 0;
   }
 
-  .PasswordField-label {
-      font-weight: bold;
+  &__Label {
+    font-weight: bold;
   }
 
-  .PasswordField-input {
+  &__Input {
     border: none;
     box-sizing: border-box;
     font-size: 18px;
@@ -24,53 +23,44 @@
     width: calc(85% - 28px);
   }
 
-  .PasswordField-input:focus { outline: none; }
-
-  .PasswordField-strength-desc {
-    color: transparent;
-    font-style: italic;
-    padding: 14px 12px;
-    position: absolute; top: 1px; right: 0;
-    text-align: right;
-    transition: color 250ms ease-in-out;
-    width: 15%;
+  &__Input:focus {
+    outline: none;
   }
 
-  .PasswordField.is-strength-0 .PasswordField-strength-desc { color: #D1462F; }
-  .PasswordField.is-strength-1 .PasswordField-strength-desc { color: #D1462F; }
-  .PasswordField.is-strength-2 .PasswordField-strength-desc { color: #57B8FF; }
-  .PasswordField.is-strength-3 .PasswordField-strength-desc { color: #57B8FF; }
-  .PasswordField.is-strength-4 .PasswordField-strength-desc { color: #2FBF71; }
-
-  .PasswordField-strength-bar {
+  &__StrengthBar {
     box-sizing: border-box;
     height: 2px;
-    position: relative; top: 1px; right: 1px;
+    position: relative;
+    top: 1px;
+    right: 1px;
     transition: width 300ms ease-out;
     width: 0;
   }
 
-  .PasswordField.is-strength-0 .PasswordField-strength-bar {
-    background: #D1462F;
+  &.is-strength-0 .PasswordField__StrengthBar {
+    background: #d1462f;
     width: 20%;
   }
 
-  .PasswordField.is-strength-1 .PasswordField-strength-bar {
-    background: #D1462F;
+  &.is-strength-1 .PasswordField__StrengthBar {
+    background: #d1462f;
     width: 40%;
   }
 
-  .PasswordField.is-strength-2 .PasswordField-strength-bar {
-    background: #57B8FF;
+  &.is-strength-2 .PasswordField__StrengthBar {
+    background: #57b8ff;
     width: 60%;
   }
 
-  .PasswordField.is-strength-3 .PasswordField-strength-bar {
-    background: #57B8FF;
+  &.is-strength-3 .PasswordField__StrengthBar {
+    background: #57b8ff;
     width: 80%;
   }
 
-  .PasswordField.is-strength-4 .PasswordField-strength-bar {
-    background: #2FBF71;
+  &.is-strength-4 .PasswordField__StrengthBar {
+    background: #2fbf71;
     width: calc(100% + 2px);
   }
+}
+
+

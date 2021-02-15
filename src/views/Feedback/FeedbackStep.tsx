@@ -9,7 +9,7 @@ import "./styles.scss";
 
 const renderOKResponse = () => {
   return (
-    <div className="success-message">
+    <div className="SuccessMessage">
       <h2>Tu password manager esta creado</h2>
       <span>bal bla bla</span>
     </div>
@@ -18,7 +18,7 @@ const renderOKResponse = () => {
 
 const renderKOResponse = () => {
   return (
-    <div className="failed-message">
+    <div className="FailedMessage">
       <h2>Ha habido un error</h2>
       <span>bal bla bla</span>
     </div>
@@ -37,7 +37,7 @@ const FeedbackStep = () => {
 
   return (
     <StyledContentLoader isLoading={isLoading}>
-      <article className="step-wrapper">
+      <article className="StepWrapper">
         {responseFromServer === 200 ? renderOKResponse() : renderKOResponse()}
       </article>
     </StyledContentLoader>

@@ -13,6 +13,8 @@ interface SetStatusActionType {
 }
 export type LoadingActionTypes = SetLoadingActionType | SetStatusActionType;
 
+/* Action creators */
+
 export const fetchServerResponse = () => {
   return (dispatch: Dispatch<LoadingActionTypes>) => {
     dispatch(setIsLoading(true));

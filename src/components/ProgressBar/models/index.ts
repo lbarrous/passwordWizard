@@ -1,8 +1,8 @@
-import { Step } from "./../../../store/types.d";
+import { Step, ValidationObject } from "./../../../store/types.d";
 export interface ProgressStep {
   stepId: Step;
   label: string;
-  validator?: (...args: any[]) => boolean;
+  validator?: (...args: any[]) => ValidationObject;
 }
 
 export enum StepStates {

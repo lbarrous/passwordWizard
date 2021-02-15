@@ -17,3 +17,7 @@ export const wizardSteps: ProgressStep[] = [
     label: "3"
   }
 ];
+
+export const MIN_NUMBER_OF_STEPS = 0;
+export const MAX_NUMBER_OF_STEPS = wizardSteps.length - 1;
+export const PASSWORD_MIN_LENGTH = 8;

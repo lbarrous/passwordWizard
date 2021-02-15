@@ -22,12 +22,12 @@ const StepProgressBar = (): JSX.Element => {
   );
 
   return (
-    <div className={`progress-bar-wrapper`}>
-      <ul className={`step-progress-bar`}>
+    <div className={`ProgressBar`}>
+      <ul className={`ProgressBar__List`}>
         {wizardSteps.map((step, i) => {
           const stepStatus = getStepStatus(step.stepId, currentStep);
           return (
-            <li key={i} className={`progress-step ${stepStatus}`}>
+            <li key={i} className={`ProgressBar__Step ${stepStatus}`}>
               {stepStatus !== StepStates.COMPLETED && (
                 <span className={"step-index"}>{step.stepId + 1}</span>
               )}

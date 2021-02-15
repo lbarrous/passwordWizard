@@ -10,18 +10,20 @@ $black: #000000;
   padding: 2rem;
 }
 
-.step-wrapper {
+.StepWrapper {
     padding: 1rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-}
+    background-color: white;
+    border: 1px #e0e0e0;
+  border-style: solid;
 
-.step-wrapper-info {
+  &__Info {
     display: flex;
     align-self: center;
     width: 50%;
     justify-content: space-around;
-
+  }
 }
 
 .image-container {

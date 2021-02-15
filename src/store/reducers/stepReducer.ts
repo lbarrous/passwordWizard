@@ -1,17 +1,17 @@
+import { MAX_NUMBER_OF_STEPS, MIN_NUMBER_OF_STEPS } from "../../constants";
 import { getStepFromNumber } from "../../utils";
-import { isSelectedType, IS_VALIDATED, NEXT_STEP, PREVIOUS_STEP, StepActionTypes } from "../actions/Step";
+import { NEXT_STEP, PREVIOUS_STEP, StepActionTypes } from "../actions/Step";
 import { StepState, StepValues } from "../types.d";
 import { createReducer } from "./reducerFactory";
 
 const initialState: StepState = {
-  currentStep: StepValues.STEP1,
-  isValidated: true
+  currentStep: StepValues.STEP1
 };
 
 const nextStep = (state: StepState, action: StepActionTypes) => {
   return {
     ...state,
-    currentStep: getStepFromNumber(state.currentStep + 1)
+    currentStep: getStepFromNumber(state.currentStep + 1 <= MAX_NUMBER_OF_STEPS ? state.currentStep + 1 : MAX_NUMBER_OF_STEPS)
 
   }
 };
@@ -19,26 +19,13 @@ const nextStep = (state: StepState, action: StepActionTypes) => {
 const previousStep = (state: StepState, action: StepActionTypes) => {
   return {
     ...state,
-    currentStep: getStepFromNumber(state.currentStep - 1)
+    currentStep: getStepFromNumber(state.currentStep - 1 >= MIN_NUMBER_OF_STEPS ? state.currentStep - 1 : MIN_NUMBER_OF_STEPS)
   }
-};
-
-const isValidated = (state: StepState, action: StepActionTypes) => {
-  if (isSelectedType(action)) {
-    return {
-      ...state,
-      isValidated: action.payload
-    }
-  } else {
-    return state;
-  }
-
 };
 
 const strategies = {
   [NEXT_STEP]: nextStep,
-  [PREVIOUS_STEP]: previousStep,
-  [IS_VALIDATED]: isValidated
+  [PREVIOUS_STEP]: previousStep
 };
 
 type TypeOfStrategies = typeof strategies;

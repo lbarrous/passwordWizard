@@ -29,10 +29,10 @@ export const PasswordField = (props: PasswordFieldProps) => {
       handleChange(value);
       dispatcher(isConfirmation ? storeConfirmationPassword(value) : storePassword(value))
     },
-    [password]
+    [dispatcher, handleChange, isConfirmation]
   );
 
-  const inputClasses = [`PasswordField-input`];
+  const inputClasses = [`PasswordField__Input`];
   const wrapperClasses = [
     "PasswordField",
     password.length > 0 ? `is-strength-${score}` : ""
@@ -45,16 +45,17 @@ export const PasswordField = (props: PasswordFieldProps) => {
   }
 
   return (
-    <div className="PasswordField-container">
-      <span className="PasswordField-label">Crea tu contrasena maestra</span>
+    <div className="PasswordField__Wrapper">
+      <span className="PasswordField__Label">Crea tu contrasena maestra</span>
       <div className={wrapperClasses.join(" ")}>
         <input
+          autoComplete={isConfirmation ? "confirm-password" : "password"}
           type="password"
           className={inputClasses.join(" ")}
           onChange={e => handlePasswordChange(e.target.value)}
           value={password}
         />
-        <div className={`PasswordField-strength-bar`} />
+        <div className={`PasswordField__StrengthBar`} />
       </div>
     </div>
   );

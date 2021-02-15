@@ -16,6 +16,8 @@ interface StoreHintdActionType {
 }
 export type PasswordActionTypes = StorePasswordActionType | StoreConfirmationPasswordActionType | StoreHintdActionType;
 
+/* Action creators */
+
 export const storePassword = (password: string): PasswordActionTypes => {
   return {
     type: STORE_PASSWORD,

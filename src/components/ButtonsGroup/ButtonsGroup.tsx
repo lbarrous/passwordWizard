@@ -17,6 +17,8 @@ interface ButtonsGroupProps {
   stepsValidated: boolean;
 }
 
+
+
 const ButtonsGroup = (props: ButtonsGroupProps): JSX.Element => {
   const { stepsValidated } = props;
   const { currentStep }: StepState = useSelector(
@@ -24,17 +26,20 @@ const ButtonsGroup = (props: ButtonsGroupProps): JSX.Element => {
   );
   const dispatcher = useDispatch<Dispatch<StepActionTypes>>();
 
+  const wrapperCSSClass = (currentStep === StepValues.STEP3 && "step3") || "";
+  const disabledButtonCssClass = (!stepsValidated && "--disabled") || "";
+
   return (
-    <footer className={`buttons-group-wrapper`}>
+    <footer className={`ButtonGroup ${wrapperCSSClass}`}>
       {currentStep !== StepValues.STEP3 && <button
-        className="buttons-group-wrapper-button"
+        className="ButtonGroup__Button"
         onClick={() => backToPrevious(dispatcher)}
       >
         Cancelar{" "}
       </button>}
       <button
         disabled={!stepsValidated}
-        className="buttons-group-wrapper-button"
+        className={`ButtonGroup__Button${disabledButtonCssClass}`}
         onClick={() => goToNext(dispatcher)}
       >
         Siguiente {">"}

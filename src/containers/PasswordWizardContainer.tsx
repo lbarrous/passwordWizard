@@ -4,7 +4,7 @@ import ButtonsGroup from "../components/ButtonsGroup/ButtonsGroup";
 import StepProgressBar from "../components/ProgressBar/ProgressBar";
 import { TriangleStep } from "../components/TriangleStep/TriangleStep";
 import { AppState } from "../store/reducers/rootReducer";
-import { PasswordState, StepState, StepValues } from "../store/types.d";
+import { PasswordState, StepState, StepValues, ValidationObject } from "../store/types.d";
 import "../styles/base.scss";
 import { getProgressStepByStepValue } from "../utils";
 import FeedbackStep from "../views/Feedback/FeedbackStep";
@@ -30,18 +30,20 @@ export const PasswordWizardContainer = () => {
             password.pass,
             password.confirmation_pass,
             password.hint
-          )) as boolean;
+          )) as ValidationObject;
     } else {
       stepIsValidated =
         (progressStep && progressStep.validator && progressStep.validator()) ||
-        true;
+        {
+          isValid: true
+        };
     }
     return stepIsValidated;
   }, [currentStep, password]);
 
   const StepMapping = {
     [StepValues.STEP1]: () => <ProductInformationStep />,
-    [StepValues.STEP2]: () => <FormStep />,
+    [StepValues.STEP2]: () => <FormStep validationObject={getStepValidation}/>,
     [StepValues.STEP3]: () => <FeedbackStep />
   };
 
@@ -50,7 +52,7 @@ export const PasswordWizardContainer = () => {
       <StepProgressBar />
       <TriangleStep />
       {StepMapping[currentStep]()}
-      <ButtonsGroup stepsValidated={getStepValidation} />
+      <ButtonsGroup stepsValidated={getStepValidation.isValid} />
     </div>
   );
 };

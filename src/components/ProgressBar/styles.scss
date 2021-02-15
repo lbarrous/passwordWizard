@@ -1,4 +1,4 @@
-.progress-bar-wrapper {
+.ProgressBar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,86 +10,87 @@
     rgba(226, 226, 240, 1) 35%,
     rgba(207, 210, 210, 1) 100%
   );
-  & * {
-    box-sizing: border-box;
-  }
-}
-
-.step-progress-bar {
-  width: 15%;
-  margin: 0 0 1rem 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-.progress-step {
-  list-style: none;
-  position: relative;
-  text-align: center;
-  flex: 1 1 auto;
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 75%;
-    height: 3px;
-    width: 100%;
-    right: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
-    background: linear-gradient(to left, #e7eaf3 50%, #4db193 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: background-position 200ms ease-in-out;
-  }
-
-  &:first-child::before {
-    content: none;
-  }
-
-  & .step-index,
-  & .step-icon {
-    background-color: #e7eaf3;
-    color: var(--text-normal);
-    border-radius: 50%;
-    height: 2.5rem;
-    width: 2.5rem;
-    line-height: 2.5rem;
-    display: inline-flex;
-    transform-origin: center;
+  &__List {
+    width: 15%;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
   }
 
-  &.completed .step-icon {
-    background-color: #4db193;
-    color: white;
-    animation: spring-down 400ms ease-in-out forwards;
+  &__Step {
+    list-style: none;
+    position: relative;
+    text-align: center;
+    flex: 1 1 auto;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 75%;
+      height: 3px;
+      width: 100%;
+      right: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+      background: linear-gradient(to left, #e7eaf3 50%, #4db193 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      transition: background-position 200ms ease-in-out;
+    }
+
+    &:first-child::before {
+      content: none;
+    }
+
+    & .step-index,
+    & .step-icon {
+      background-color: #e7eaf3;
+      color: var(--text-normal);
+      border-radius: 50%;
+      height: 2.5rem;
+      width: 2.5rem;
+      line-height: 2.5rem;
+      display: inline-flex;
+      transform-origin: center;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.completed .step-icon {
+      background-color: #4db193;
+      color: white;
+      animation: spring-down 400ms ease-in-out forwards;
+    }
+    &.completed .step-icon:hover {
+      background-color: #42997f;
+    }
+    &.current .step-index {
+      background-color: #387cf6;
+      color: white;
+      animation: spring-up 400ms ease forwards;
+    }
+    &.current .step-index:hover {
+      background-color: #316ddb;
+    }
+    &.completed::before,
+    &.current::before,
+    &.has-error::before {
+      background-position: left bottom;
+    }
+    &.has-error .step-icon {
+      color: white;
+      background-color: #bb392d;
+      animation: shake 350ms ease-in-out forwards;
+    }
   }
-  &.completed .step-icon:hover {
-    background-color: #42997f;
-  }
-  &.current .step-index {
-    background-color: #387cf6;
-    color: white;
-    animation: spring-up 400ms ease forwards;
-  }
-  &.current .step-index:hover {
-    background-color: #316ddb;
-  }
-  &.completed::before,
-  &.current::before,
-  &.has-error::before {
-    background-position: left bottom;
-  }
-  &.has-error .step-icon {
-    color: white;
-    background-color: #bb392d;
-    animation: shake 350ms ease-in-out forwards;
+
+  & * {
+    box-sizing: border-box;
   }
 }
 
