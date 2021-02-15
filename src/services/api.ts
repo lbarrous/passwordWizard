@@ -4,6 +4,9 @@ const PRUEBA_OK = 'pruebaOK123';
 const RESPONSE_OK = {status: 200};
 const RESPONSE_KO = {status: 401};
 
+export const STATUS_OK = 200;
+export const STATUS_KO = 401;
+
 const submitForm = (pass: any, repass: any, optionalQuestion: any) =>
 	new Promise((resolve, reject) =>
 		setTimeout(() =>

@@ -1,4 +1,6 @@
+import { TFunction } from "i18next";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import StyledContentLoader from "styled-content-loader";
@@ -8,24 +10,25 @@ import { fetchServerResponse, LoadingActionTypes } from "../../store/actions/Loa
 import { LoadingState } from "../../store/types";
 import { FailedMessage, SuccessMessage } from "./styles";
 
-const renderOKResponse = () => {
+const renderOKResponse = (t: TFunction) => {
   return (
     <SuccessMessage>
-      <h2>Tu password manager esta creado</h2>
-      <span>bal bla bla</span>
+      <h2>{t("success_title")}</h2>
+      <span>{t("success_content")}</span>
     </SuccessMessage>
   );
 };
 
-const renderKOResponse = () => {
+const renderKOResponse = (t: TFunction) => {
   return (
     <FailedMessage>
-      <h2>Ha habido un error</h2>
-      <span>bal bla bla</span>
+      <h2>{t("error_title")}</h2>
+      <span>{t("error_content")}</span>
     </FailedMessage>
   );
 };
 const FeedbackStep = () => {
+  const { t } = useTranslation();
   const { isLoading, responseFromServer }: LoadingState = useSelector(
     (state: AppState) => state.loading
   );
@@ -39,7 +42,7 @@ const FeedbackStep = () => {
   return (
     <StyledContentLoader isLoading={isLoading}>
       <StyledStepWrapper>
-        {responseFromServer === 200 ? renderOKResponse() : renderKOResponse()}
+        {responseFromServer === 200 ? renderOKResponse(t) : renderKOResponse(t)}
       </StyledStepWrapper>
     </StyledContentLoader>
   );

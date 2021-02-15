@@ -1,4 +1,5 @@
 import React, { Dispatch, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { PasswordActionTypes, storeConfirmationPassword, storePassword } from "../../store/actions/Password";
 import { AppState } from "../../store/reducers/rootReducer";
@@ -8,6 +9,7 @@ import { PasswordFieldProps } from "./models";
 import { GlobalWrapper, Label, PasswordInput, PasswordWrapper, StrengthBar } from "./styles";
 
 export const PasswordField = (props: PasswordFieldProps) => {
+  const { t } = useTranslation();
   const passwordState: PasswordState = useSelector(
     (state: AppState) => state.password
   );
@@ -35,7 +37,7 @@ export const PasswordField = (props: PasswordFieldProps) => {
 
   return (
     <GlobalWrapper>
-      <Label>Crea tu contrasena maestra</Label>
+      <Label>{t(`${isConfirmation ? "repeat_master_password" : "create_master_password"}`)}</Label>
       <PasswordWrapper score={score}>
         <PasswordInput
           autoComplete={isConfirmation ? "confirm-password" : "password"}

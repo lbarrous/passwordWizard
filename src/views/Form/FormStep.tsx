@@ -1,4 +1,5 @@
 import React, { Dispatch } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { PasswordField } from "../../components/PasswordField/PasswordField";
 import { StyledStepWrapper } from "../../components/StyledStepWrapper/StyledStepWrapper";
@@ -17,6 +18,7 @@ const handleHintChange = (
 };
 
 const FormStep = (props: FormStepProps) => {
+  const { t } = useTranslation();
   const { validationObject } = props;
   const dispatcher = useDispatch<Dispatch<PasswordActionTypes>>();
   const { password }: PasswordState = useSelector(
@@ -24,12 +26,10 @@ const FormStep = (props: FormStepProps) => {
   );
   return (
     <StyledStepWrapper>
-      <h1>Crea tu Password Manager</h1>
+      <h1>{t("title")}</h1>
       <section>
         <p>
-          En primer lugar, debes crear una contrasea diferente para sus
-          pertenencias electronicas. No podras recuperar tu contrasea, aqui que
-          guardala bien.
+          {t("how_it_works_content")}
         </p>
         <PasswordForm>
           <PasswordField
@@ -46,13 +46,13 @@ const FormStep = (props: FormStepProps) => {
             "passwords_not_equals"
           ) && (
             <PasswordErrorLabel>
-              Las contraseas deben ser iguales.
+              {t("passwords_not_equals")}
             </PasswordErrorLabel>
           )}
         {validationObject.associatedErrors &&
           validationObject.associatedErrors.includes("regex_failed") && (
             <PasswordErrorLabel>
-              La contrasena debe tener al menos una letra mayuscula y un numero
+              {t("regex_failed")}
             </PasswordErrorLabel>
           )}
         {validationObject.associatedErrors &&
@@ -60,15 +60,14 @@ const FormStep = (props: FormStepProps) => {
             "password_not_min_length"
           ) && (
             <PasswordErrorLabel>
-              La contrasena debe tener al menos 8 caracteres
+              {t("password_not_min_length")}
             </PasswordErrorLabel>
           )}
         <p>
-          Tambien puedes crear una pista que te ayude a recordar tu contrasea
-          maestra.
+          {t("hint")}
         </p>
         <FormLabel>
-          Crea tu pista para recordar tu contrasena (Opcional).
+          {t("hint_label")}
         </FormLabel>
         <Hint>
           <HintInput
@@ -79,7 +78,7 @@ const FormStep = (props: FormStepProps) => {
         {validationObject.associatedErrors &&
           validationObject.associatedErrors.includes("hint_exceeds_length") && (
             <HintErrorLabel>
-              La pista no puede exceder en 255 caracteres
+              {t("hint_error")}
             </HintErrorLabel>
           )}
       </section>

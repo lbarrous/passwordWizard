@@ -1,33 +1,33 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import image2 from "../../assets/img/group-3.svg";
 import image from "../../assets/img/group.svg";
 import { StyledStepWrapper } from "../../components/StyledStepWrapper/StyledStepWrapper";
 import { ImageContainer, Info } from "./styles";
 
 const ProductInformationStep = () => {
+  const { t } = useTranslation();
   return (
     <StyledStepWrapper>
-      <h1>Crea tu Password Manager</h1>
+      <h1>{t("title")}</h1>
       <Info>
         <ImageContainer>
           <img src={image} alt="Password" />
           <p>
-            Guarda aqui todas tus contraseas, datos o cualquier informacion,
-            olvida las notas de papel y las aplicaciones no protegidas.
+            {t("info_1")}
           </p>
         </ImageContainer>
         <ImageContainer>
           <img src={image2} alt="Password2" />
           <p>
-            Crea tu clave maestra: Solo tu podras acceder a sus secretos con
-            ella.
+            {t("info_2")}
           </p>
         </ImageContainer>
       </Info>
-      <h3>Como funciona</h3>
-      <p>bla bla...</p>
-      <h3>Que datos puedes guardar</h3>
-      <p>Bla bla...</p>
+      <h3>{t("how_it_works_title")}</h3>
+      <p>{t("how_it_works_content")}</p>
+      <h3>{t("what_can_be_saved_title")}</h3>
+      <p>{t("what_can_be_saved_content")}</p>
     </StyledStepWrapper>
   );
 };
