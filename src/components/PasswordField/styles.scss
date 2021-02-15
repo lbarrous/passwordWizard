@@ -24,7 +24,6 @@
     width: calc(85% - 28px);
   }
 
-  .PasswordField-input:not(:focus).is-password-invalid { color: #D1462F; }
   .PasswordField-input:focus { outline: none; }
 
   .PasswordField-strength-desc {

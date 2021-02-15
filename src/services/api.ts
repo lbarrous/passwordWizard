@@ -1,4 +1,5 @@
 const PRUEBA_KO = 'pruebaKO123';
+const PRUEBA_OK = 'pruebaOK123';
 
 const RESPONSE_OK = {status: 200};
 const RESPONSE_KO = {status: 401};
@@ -12,6 +13,5 @@ const submitForm = (pass: any, repass: any, optionalQuestion: any) =>
 		, 3000)
 )
 
-export {
-	submitForm
-}
+export { submitForm, PRUEBA_KO, PRUEBA_OK };
+

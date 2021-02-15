@@ -1,5 +1,6 @@
-import { StepValues } from "./store/types.d";
 import { ProgressStep } from "./components/ProgressBar/models/index";
+import { StepValues } from "./store/types.d";
+import { validateFormStep } from "./utils";
 
 export const wizardSteps: ProgressStep[] = [
   {
@@ -8,7 +9,8 @@ export const wizardSteps: ProgressStep[] = [
   },
   {
     stepId: StepValues.STEP2,
-    label: "2"
+    label: "2",
+    validator: validateFormStep
   },
   {
     stepId: StepValues.STEP3,

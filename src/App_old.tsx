@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.scss";
 import OpenbankLogo from './assets/img/key_openbank.png';
 import Step3 from "./views/Feedback";
-import Step2 from "./views/Form/FormStep";
 
 
 
@@ -26,7 +25,6 @@ class App extends Component {
                       </li>
                       <li>
                           <h4>2º Pantalla de creación de la contraseña</h4>
-                          <Step2/>
                           <p>En esta pantalla al usuario se le van a pedir los siguientes datos en un formulario.</p>
                           <ul>
                               <li>Contraseña(Min 8 - Max 24 caracteres)(Al menos 1 número y una mayúscula)</li>

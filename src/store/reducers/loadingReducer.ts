@@ -1,18 +1,30 @@
-import { LoadingAction, LoadingState } from "../types";
+import { LoadingState } from "../types";
+import { LoadingActionTypes, SET_LOADING, SET_RESPONSE } from './../actions/Loading';
 import { createReducer } from "./reducerFactory";
 
 
 const initialState: LoadingState = {
-  isLoading: false
+  isLoading: false,
+  responseFromServer: 0
 };
 
-const setLoadingStatus = (state: LoadingState, action: LoadingAction) => {
-  //TODO: Change step and return state
-  return state;
+const setLoadingStatus = (state: LoadingState, action: LoadingActionTypes) => {
+  return {
+    ...state,
+    isLoading: action.payload
+  };
+};
+
+const setResponseFromServerStatus = (state: LoadingState, action: LoadingActionTypes) => {
+  return {
+    ...state,
+    responseFromServer: action.payload
+  };
 };
 
 const strategies = {
-  SET_LOADING: setLoadingStatus,
+  [SET_LOADING]: setLoadingStatus,
+  [SET_RESPONSE]: setResponseFromServerStatus,
 };
 
 type TypeOfStrategies = typeof strategies;

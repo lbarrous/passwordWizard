@@ -1,14 +1,10 @@
 export interface Password {
   pass: string;
+  confirmation_pass: string;
   hint?: string;
 }
 
 export type PasswordState = {
-  password: Password;
-};
-
-export type PasswordAction = {
-  type: string;
   password: Password;
 };
 
@@ -22,18 +18,14 @@ export type Step = typeof StepValues[keyof typeof StepValues];
 
 export type StepState = {
   currentStep: Step;
-};
-
-export type StepAction = {
-  type: string;
-  step: Step;
+  isValidated: boolean;
 };
 
 export type LoadingState = {
   isLoading: boolean;
+  responseFromServer: number;
 };
 
-export type LoadingAction = {
-  type: string;
-  loading: boolean;
-};
+export interface responseFromServer {
+  status: number
+}

@@ -4,17 +4,12 @@ import zxcvbn from "zxcvbn";
 export const usePassword = (
   currentPassword: string,
   minLength: number,
-  minScore: number
 ) => {
   const [password, setPassword] = useState(currentPassword);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(zxcvbn(password).score as number);
   const [isValid, setIsValid] = useState(false);
 
-  const clear = () => {
-    setScore(0);
-    setIsValid(false);
-    setPassword("");
-  };
+  const regex = /^(?=.*[A-Z])(?=.*\d).*$/;
 
   const handleChange = (password: string) => {
     let score = 0;
@@ -28,7 +23,7 @@ export const usePassword = (
     }
 
     setScore(score);
-    setIsValid(score >= minScore);
+    setIsValid(regex.test(password));
     setPassword(password);
   };
 
@@ -36,9 +31,7 @@ export const usePassword = (
   password.length < minLength;
 
   return {
-    clear,
     handleChange,
-    isTooShort,
     password,
     score,
     isValid

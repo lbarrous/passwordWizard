@@ -1,30 +1,42 @@
-import React from "react";
+import React, { Dispatch, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { PasswordActionTypes, storeConfirmationPassword, storePassword } from "../../store/actions/Password";
+import { AppState } from "../../store/reducers/rootReducer";
+import { PasswordState } from "../../store/types";
 import { usePassword } from "./hooks/usePassword";
 import { PasswordFieldProps } from "./models";
 import "./styles.scss";
 
 export const PasswordField = (props: PasswordFieldProps) => {
-  const { minLength } = props;
 
-  const scoreWords = ["weak", "okay", "good", "strong", "stronger"];
+  const passwordState: PasswordState = useSelector(
+    (state: AppState) => state.password
+  );
+
+  const dispatcher = useDispatch<Dispatch<PasswordActionTypes>>();
+  const { minLength, isConfirmation } = props;
+  const currentPassword = isConfirmation ? passwordState.password.confirmation_pass : passwordState.password.pass;
 
   const {
-    clear,
     handleChange,
-    isTooShort,
     password,
     score,
     isValid
-  } = usePassword("", 2, 4);
+  } = usePassword(currentPassword, minLength);
+
+  const handlePasswordChange = useCallback(
+    (value: string) => {
+      handleChange(value);
+      dispatcher(isConfirmation ? storeConfirmationPassword(value) : storePassword(value))
+    },
+    [password]
+  );
 
   const inputClasses = [`PasswordField-input`];
   const wrapperClasses = [
     "PasswordField",
     password.length > 0 ? `is-strength-${score}` : ""
   ];
-  const strengthDesc = isTooShort(password, minLength)
-    ? "too short"
-    : scoreWords[score];
 
   if (isValid === true) {
     inputClasses.push("is-password-valid");
@@ -39,11 +51,10 @@ export const PasswordField = (props: PasswordFieldProps) => {
         <input
           type="password"
           className={inputClasses.join(" ")}
-          onChange={e => handleChange(e.target.value)}
+          onChange={e => handlePasswordChange(e.target.value)}
           value={password}
         />
         <div className={`PasswordField-strength-bar`} />
-        <span className={`PasswordField-strength-desc`}>{strengthDesc}</span>
       </div>
     </div>
   );

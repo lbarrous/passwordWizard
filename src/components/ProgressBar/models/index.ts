@@ -2,6 +2,7 @@ import { Step } from "./../../../store/types.d";
 export interface ProgressStep {
   stepId: Step;
   label: string;
+  validator?: (...args: any[]) => boolean;
 }
 
 export enum StepStates {
