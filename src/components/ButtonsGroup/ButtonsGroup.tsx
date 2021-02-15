@@ -1,3 +1,4 @@
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { TFunction } from "i18next";
 import React, { Dispatch } from "react";
 import { useTranslation } from "react-i18next";
@@ -45,16 +46,18 @@ const ButtonsGroup = (props: ButtonsGroupProps): JSX.Element => {
     <StyledContentLoader isLoading={isLoading}>
       <Footer isStep3={currentStep === StepValues.STEP3}>
         {currentStep !== StepValues.STEP3 && (
-          <Button onClick={() => backToPrevious(dispatcher)}>
+          <Button isPrimary={false} onClick={() => backToPrevious(dispatcher)}>
             {t("cancel")}
           </Button>
         )}
         <Button
+          isPrimary={true}
           disabled={!stepsValidated || isLoading}
           isDisabled={!stepsValidated || isLoading}
           onClick={() => goToNext(dispatcher)}
         >
           {t(getNextTranslation(t, currentStep, responseFromServer))}
+          {<NavigateNextIcon />}
         </Button>
       </Footer>
     </StyledContentLoader>

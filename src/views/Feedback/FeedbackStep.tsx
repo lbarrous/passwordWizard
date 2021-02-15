@@ -1,3 +1,5 @@
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import ErrorIcon from "@material-ui/icons/Error";
 import { TFunction } from "i18next";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,7 +15,10 @@ import { FailedMessage, SuccessMessage } from "./styles";
 const renderOKResponse = (t: TFunction) => {
   return (
     <SuccessMessage>
-      <h2>{t("success_title")}</h2>
+      <h2>
+        {<CheckCircleOutlineIcon fontSize="large"/>}
+        {t("success_title")}
+      </h2>
       <span>{t("success_content")}</span>
     </SuccessMessage>
   );
@@ -22,7 +27,10 @@ const renderOKResponse = (t: TFunction) => {
 const renderKOResponse = (t: TFunction) => {
   return (
     <FailedMessage>
-      <h2>{t("error_title")}</h2>
+      <h2>
+        {<ErrorIcon fontSize="large" />}
+        {t("error_title")}
+      </h2>
       <span>{t("error_content")}</span>
     </FailedMessage>
   );

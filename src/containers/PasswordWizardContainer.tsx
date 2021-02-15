@@ -1,7 +1,9 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import img_key from "../assets/img/key_openbank.png";
+import logo from "../assets/img/logo_openbank.png";
 import ButtonsGroup from "../components/ButtonsGroup/ButtonsGroup";
+import LanguageSelector from "../components/LanguageSelector/LanguageSelector";
 import StepProgressBar from "../components/ProgressBar/ProgressBar";
 import { TriangleStep } from "../components/TriangleStep/TriangleStep";
 import { AppState } from "../store/reducers/rootReducer";
@@ -11,11 +13,8 @@ import { getProgressStepByStepValue } from "../utils";
 import FeedbackStep from "../views/Feedback/FeedbackStep";
 import FormStep from "../views/Form/FormStep";
 import ProductInformationStep from "../views/ProductInformation/ProductInformationStep";
+import { Container, Key, Logo } from "./styles";
 
-const Container = styled.div`
-background-color: #f3eded;
-padding: 2rem;
-`;
 export const PasswordWizardContainer = () => {
   const { currentStep }: StepState = useSelector(
     (state: AppState) => state.step
@@ -51,13 +50,15 @@ export const PasswordWizardContainer = () => {
     [StepValues.STEP2]: () => <FormStep validationObject={getStepValidation}/>,
     [StepValues.STEP3]: () => <FeedbackStep />
   };
-
   return (
     <Container>
       <StepProgressBar />
+      <Logo src={logo} alt="logo" />
+      <Key src={img_key} alt="key" />
       <TriangleStep />
       {StepMapping[currentStep]()}
       <ButtonsGroup stepsValidated={getStepValidation.isValid} />
+      <LanguageSelector/>
     </Container>
   );
 };

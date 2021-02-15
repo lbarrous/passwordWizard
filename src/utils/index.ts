@@ -1,4 +1,4 @@
-import { PASSWORD_MIN_LENGTH, wizardSteps } from "./../constants";
+import { PASSWORD_MIN_LENGTH, secondaryColor, whiteColor, wizardSteps } from "./../constants";
 import { Step, StepValues, ValidationObject } from "./../store/types.d";
 
 const getStepFromNumber = (stepNumber: number) =>
@@ -7,7 +7,7 @@ const getStepFromNumber = (stepNumber: number) =>
 const getProgressStepByStepValue = (currentStep: Step) =>
   wizardSteps.find(step => step.stepId === currentStep) || null;
 
-  const regexPasswordValidation = /^(?=.*[A-Z])(?=.*\d).*$/;
+const regexPasswordValidation = /^(?=.*[A-Z])(?=.*\d).*$/;
 
 const validateFormStep = (
   password: string,
@@ -18,13 +18,19 @@ const validateFormStep = (
   if (!password.length || !repeatedPassword.length) {
     associatedErrors = associatedErrors.concat(["passwords_empty"]);
   }
-  if (password.length && !regexPasswordValidation.test(password) || repeatedPassword.length &&!regexPasswordValidation.test(repeatedPassword)) {
+  if (
+    (password.length && !regexPasswordValidation.test(password)) ||
+    (repeatedPassword.length && !regexPasswordValidation.test(repeatedPassword))
+  ) {
     associatedErrors = associatedErrors.concat(["regex_failed"]);
   }
   if (password !== repeatedPassword) {
     associatedErrors = associatedErrors.concat(["passwords_not_equals"]);
   }
-  if ((password.length && password.length < PASSWORD_MIN_LENGTH) || (repeatedPassword.length && repeatedPassword.length < PASSWORD_MIN_LENGTH)) {
+  if (
+    (password.length && password.length < PASSWORD_MIN_LENGTH) ||
+    (repeatedPassword.length && repeatedPassword.length < PASSWORD_MIN_LENGTH)
+  ) {
     associatedErrors = associatedErrors.concat(["password_not_min_length"]);
   }
   if (hint.length > 255) {
@@ -40,5 +46,18 @@ const validateFormStep = (
 const isPasswordTooShort = (password: string, minLength: number) =>
   password.length < minLength;
 
-export { getStepFromNumber, getProgressStepByStepValue, validateFormStep, isPasswordTooShort };
+const getButtonCSS = (
+  isDisabled: boolean = false,
+  isPrimary: boolean
+) => {
+  if (!!isDisabled) {
+    return `background-color: #cccccc; color: ${whiteColor};`;
+  } else {
+    return isPrimary
+      ? `background-color: ${secondaryColor}; color: ${whiteColor};`
+      : `background-color: ${whiteColor}; color: ${secondaryColor};`;
+  }
+};
+
+export { getStepFromNumber, getProgressStepByStepValue, validateFormStep, isPasswordTooShort, getButtonCSS };
 

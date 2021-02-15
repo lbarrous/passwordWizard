@@ -119,3 +119,9 @@ export const TriangleStepCSS: { [key: string]: string } = {
   [StepValues.STEP2]: `margin-left: 50%;`,
   [StepValues.STEP3]: `margin-left: 55%;`,
 };
+
+export const primaryColor = "#ff0049";
+export const secondaryColor = "#002b45";
+export const terciaryColor = "#fff1e5";
+export const whiteColor = "#ffffff";
+export const blackColor = "#000000";
