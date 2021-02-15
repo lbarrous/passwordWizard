@@ -4,13 +4,10 @@ import { Step, StepValues, ValidationObject } from "./../store/types.d";
 const getStepFromNumber = (stepNumber: number) =>
   Object.values(StepValues)[stepNumber];
 
-const getTriangleCSSClassFromStep = (step: Step) =>
-  Object.keys(StepValues)
-    [step].toString()
-    .toLowerCase();
-
 const getProgressStepByStepValue = (currentStep: Step) =>
   wizardSteps.find(step => step.stepId === currentStep) || null;
+
+  const regexPasswordValidation = /^(?=.*[A-Z])(?=.*\d).*$/;
 
 const validateFormStep = (
   password: string,
@@ -20,6 +17,9 @@ const validateFormStep = (
   let associatedErrors: string[] = [];
   if (!password.length || !repeatedPassword.length) {
     associatedErrors = associatedErrors.concat(["passwords_empty"]);
+  }
+  if (password.length && !regexPasswordValidation.test(password) || repeatedPassword.length &&!regexPasswordValidation.test(repeatedPassword)) {
+    associatedErrors = associatedErrors.concat(["regex_failed"]);
   }
   if (password !== repeatedPassword) {
     associatedErrors = associatedErrors.concat(["passwords_not_equals"]);
@@ -40,5 +40,5 @@ const validateFormStep = (
 const isPasswordTooShort = (password: string, minLength: number) =>
   password.length < minLength;
 
-export { getStepFromNumber, getTriangleCSSClassFromStep, getProgressStepByStepValue, validateFormStep, isPasswordTooShort };
+export { getStepFromNumber, getProgressStepByStepValue, validateFormStep, isPasswordTooShort };
 

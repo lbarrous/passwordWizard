@@ -8,9 +8,6 @@ export const usePassword = (
 ) => {
   const [password, setPassword] = useState(currentPassword);
   const [score, setScore] = useState(zxcvbn(password).score as number);
-  const [isValid, setIsValid] = useState(false);
-
-  const regex = /^(?=.*[A-Z])(?=.*\d).*$/;
 
   const handleChange = (password: string) => {
     let score = 0;
@@ -24,7 +21,6 @@ export const usePassword = (
     }
 
     setScore(score);
-    setIsValid(regex.test(password));
     setPassword(password);
   };
 
@@ -32,6 +28,5 @@ export const usePassword = (
     handleChange,
     password,
     score,
-    isValid
   };
 };

@@ -2,26 +2,27 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import StyledContentLoader from "styled-content-loader";
+import { StyledStepWrapper } from "../../components/StyledStepWrapper/StyledStepWrapper";
 import { AppState } from "../../store";
 import { fetchServerResponse, LoadingActionTypes } from "../../store/actions/Loading";
 import { LoadingState } from "../../store/types";
-import "./styles.scss";
+import { FailedMessage, SuccessMessage } from "./styles";
 
 const renderOKResponse = () => {
   return (
-    <div className="SuccessMessage">
+    <SuccessMessage>
       <h2>Tu password manager esta creado</h2>
       <span>bal bla bla</span>
-    </div>
+    </SuccessMessage>
   );
 };
 
 const renderKOResponse = () => {
   return (
-    <div className="FailedMessage">
+    <FailedMessage>
       <h2>Ha habido un error</h2>
       <span>bal bla bla</span>
-    </div>
+    </FailedMessage>
   );
 };
 const FeedbackStep = () => {
@@ -37,9 +38,9 @@ const FeedbackStep = () => {
 
   return (
     <StyledContentLoader isLoading={isLoading}>
-      <article className="StepWrapper">
+      <StyledStepWrapper>
         {responseFromServer === 200 ? renderOKResponse() : renderKOResponse()}
-      </article>
+      </StyledStepWrapper>
     </StyledContentLoader>
   );
 };

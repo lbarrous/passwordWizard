@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { nextStep, previousStep, StepActionTypes } from "../../store/actions/Step";
 import { AppState } from "../../store/reducers/rootReducer";
 import { StepState, StepValues } from "../../store/types.d";
-import "./styles.scss";
+import { ButtonsGroupProps } from "./models";
+import { Button, Footer } from "./styles";
 
 const goToNext = (dispatcher: Dispatch<StepActionTypes>) => {
   dispatcher(nextStep());
@@ -13,12 +14,6 @@ const backToPrevious = (dispatcher: Dispatch<StepActionTypes>) => {
   dispatcher(previousStep());
 };
 
-interface ButtonsGroupProps {
-  stepsValidated: boolean;
-}
-
-
-
 const ButtonsGroup = (props: ButtonsGroupProps): JSX.Element => {
   const { stepsValidated } = props;
   const { currentStep }: StepState = useSelector(
@@ -26,25 +21,19 @@ const ButtonsGroup = (props: ButtonsGroupProps): JSX.Element => {
   );
   const dispatcher = useDispatch<Dispatch<StepActionTypes>>();
 
-  const wrapperCSSClass = (currentStep === StepValues.STEP3 && "step3") || "";
-  const disabledButtonCssClass = (!stepsValidated && "--disabled") || "";
-
   return (
-    <footer className={`ButtonGroup ${wrapperCSSClass}`}>
-      {currentStep !== StepValues.STEP3 && <button
-        className="ButtonGroup__Button"
-        onClick={() => backToPrevious(dispatcher)}
-      >
-        Cancelar{" "}
-      </button>}
-      <button
+    <Footer isStep3={currentStep === StepValues.STEP3}>
+      {currentStep !== StepValues.STEP3 && (
+        <Button onClick={() => backToPrevious(dispatcher)}>Cancelar </Button>
+      )}
+      <Button
         disabled={!stepsValidated}
-        className={`ButtonGroup__Button${disabledButtonCssClass}`}
+        isDisabled={!stepsValidated}
         onClick={() => goToNext(dispatcher)}
       >
         Siguiente {">"}
-      </button>
-    </footer>
+      </Button>
+    </Footer>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 import ButtonsGroup from "../components/ButtonsGroup/ButtonsGroup";
 import StepProgressBar from "../components/ProgressBar/ProgressBar";
 import { TriangleStep } from "../components/TriangleStep/TriangleStep";
@@ -11,6 +12,10 @@ import FeedbackStep from "../views/Feedback/FeedbackStep";
 import FormStep from "../views/Form/FormStep";
 import ProductInformationStep from "../views/ProductInformation/ProductInformationStep";
 
+const Container = styled.div`
+background-color: #f3eded;
+padding: 2rem;
+`;
 export const PasswordWizardContainer = () => {
   const { currentStep }: StepState = useSelector(
     (state: AppState) => state.step
@@ -48,11 +53,11 @@ export const PasswordWizardContainer = () => {
   };
 
   return (
-    <div className={"PasswordWizardContainer"}>
+    <Container>
       <StepProgressBar />
       <TriangleStep />
       {StepMapping[currentStep]()}
       <ButtonsGroup stepsValidated={getStepValidation.isValid} />
-    </div>
+    </Container>
   );
 };

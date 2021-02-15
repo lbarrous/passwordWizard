@@ -5,58 +5,46 @@ import { AppState } from "../../store/reducers/rootReducer";
 import { PasswordState } from "../../store/types";
 import { usePassword } from "./hooks/usePassword";
 import { PasswordFieldProps } from "./models";
-import "./styles.scss";
+import { GlobalWrapper, Label, PasswordInput, PasswordWrapper, StrengthBar } from "./styles";
 
 export const PasswordField = (props: PasswordFieldProps) => {
-
   const passwordState: PasswordState = useSelector(
     (state: AppState) => state.password
   );
 
   const dispatcher = useDispatch<Dispatch<PasswordActionTypes>>();
   const { minLength, isConfirmation } = props;
-  const currentPassword = isConfirmation ? passwordState.password.confirmation_pass : passwordState.password.pass;
+  const currentPassword = isConfirmation
+    ? passwordState.password.confirmation_pass
+    : passwordState.password.pass;
 
-  const {
-    handleChange,
-    password,
-    score,
-    isValid
-  } = usePassword(currentPassword, minLength);
+  const { handleChange, password, score } = usePassword(
+    currentPassword,
+    minLength
+  );
 
   const handlePasswordChange = useCallback(
     (value: string) => {
       handleChange(value);
-      dispatcher(isConfirmation ? storeConfirmationPassword(value) : storePassword(value))
+      dispatcher(
+        isConfirmation ? storeConfirmationPassword(value) : storePassword(value)
+      );
     },
     [dispatcher, handleChange, isConfirmation]
   );
 
-  const inputClasses = [`PasswordField__Input`];
-  const wrapperClasses = [
-    "PasswordField",
-    password.length > 0 ? `is-strength-${score}` : ""
-  ];
-
-  if (isValid === true) {
-    inputClasses.push("is-password-valid");
-  } else if (password.length > 0) {
-    inputClasses.push("is-password-invalid");
-  }
-
   return (
-    <div className="PasswordField__Wrapper">
-      <span className="PasswordField__Label">Crea tu contrasena maestra</span>
-      <div className={wrapperClasses.join(" ")}>
-        <input
+    <GlobalWrapper>
+      <Label>Crea tu contrasena maestra</Label>
+      <PasswordWrapper score={score}>
+        <PasswordInput
           autoComplete={isConfirmation ? "confirm-password" : "password"}
           type="password"
-          className={inputClasses.join(" ")}
           onChange={e => handlePasswordChange(e.target.value)}
           value={password}
         />
-        <div className={`PasswordField__StrengthBar`} />
-      </div>
-    </div>
+        <StrengthBar password={password} score={score} />
+      </PasswordWrapper>
+    </GlobalWrapper>
   );
 };
