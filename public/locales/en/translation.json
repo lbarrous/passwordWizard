@@ -21,5 +21,7 @@
     "regex_failed": "Password must contain at least one uppercase letter and a digit.",
     "password_not_min_length": "Password must have at least 8 characters",
     "go_forward": "Access",
-    "go_back": "Go back to access manager"
+    "go_back": "Go back to access manager",
+    "es": "Spanish",
+    "en": "English"
   }

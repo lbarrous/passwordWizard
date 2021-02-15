@@ -4,7 +4,7 @@ import { NEXT_STEP, PREVIOUS_STEP, StepActionTypes } from "../actions/Step";
 import { StepState, StepValues } from "../types.d";
 import { createReducer } from "./reducerFactory";
 
-const initialState: StepState = {
+export const initialState: StepState = {
   currentStep: StepValues.STEP1
 };
 

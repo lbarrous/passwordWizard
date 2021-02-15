@@ -21,5 +21,7 @@
   "regex_failed": "La contraseña debe tener al menos una letra mayuscula y un numero",
   "password_not_min_length": "La contraseña debe tener al menos 8 caracteres",
   "go_forward": "Acceder",
-  "go_back": "Volver al access manager"
+  "go_back": "Volver al access manager",
+  "es": "Español",
+    "en": "Ingles"
 }

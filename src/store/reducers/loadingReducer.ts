@@ -3,7 +3,7 @@ import { LoadingActionTypes, SET_LOADING, SET_RESPONSE } from './../actions/Load
 import { createReducer } from "./reducerFactory";
 
 
-const initialState: LoadingState = {
+export const initialState: LoadingState = {
   isLoading: false,
   responseFromServer: 0
 };

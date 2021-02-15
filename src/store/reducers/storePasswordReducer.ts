@@ -7,7 +7,7 @@ type PasswordState = {
   password: Password;
 };
 
-const initialState: PasswordState = {
+export const initialState: PasswordState = {
   password: {
     pass: "",
     confirmation_pass: "",

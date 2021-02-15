@@ -14,8 +14,8 @@ const LanguageSelector = () => {
 
   return (
     <Wrapper>
-      <Button onClick={() => changeLanguage("es")}>{"ES"}</Button>
-      <Button onClick={() => changeLanguage("en")}>{"EN"}</Button>
+      <Button onClick={() => changeLanguage("es")}>{t("es")}</Button>
+      <Button onClick={() => changeLanguage("en")}>{t("en")}</Button>
     </Wrapper>
   );
 };
