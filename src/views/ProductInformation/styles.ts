@@ -9,6 +9,5 @@ export const Info = styled.section`
 
 export const ImageContainer = styled.div`
   flex: 1 1 0px;
-  margin: 2rem;
   text-align: center;
 `;

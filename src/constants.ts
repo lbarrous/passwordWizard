@@ -1,7 +1,4 @@
-import {
-  ProgressStep,
-  StepStates
-} from "./components/ProgressBar/models/index";
+import { ProgressStep, StepStates } from "./components/ProgressBar/models/index";
 import { StepValues } from "./store/types.d";
 import { validateFormStep } from "./utils";
 
@@ -38,6 +35,8 @@ export const PasswordStrengthLevelsCSS: { [key: number]: string } = {
   width: calc(100% + 2px);`
 };
 
+export const MEDIUM_DEVICE_SCREEN = 768;
+
 export const StepCommonCss = `background-color: #e7eaf3;
 color: var(--text-normal);
 border-radius: 50%;
@@ -49,6 +48,12 @@ transform-origin: center;
 align-items: center;
 justify-content: center;
 transition: background-color 250ms ease;
+
+@media only screen and (max-width: ${MEDIUM_DEVICE_SCREEN}px) {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
 @keyframes spring-up {
   0% {
     transform: scale(1);

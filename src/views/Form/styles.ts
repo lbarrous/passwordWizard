@@ -1,7 +1,11 @@
 import styled from "styled-components";
+import { MEDIUM_DEVICE_SCREEN } from "../../constants";
 
 export const PasswordForm = styled.form`
   display: flex;
+  @media only screen and (max-width: ${MEDIUM_DEVICE_SCREEN}px) {
+    display: grid;
+  }
 `;
 
 export const PasswordErrorLabel = styled.p`
