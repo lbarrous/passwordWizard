@@ -1,7 +1,11 @@
 import { PasswordActionTypes } from "../actions/Password";
 import { Password } from "../types";
-import { STORE_CONFIRMATION_PASSWORD, STORE_HINT, STORE_PASSWORD } from './../actions/Password';
-import { createReducer } from './reducerFactory';
+import {
+  STORE_CONFIRMATION_PASSWORD,
+  STORE_HINT,
+  STORE_PASSWORD
+} from "./../actions/Password";
+import { createReducer } from "./reducerFactory";
 
 type PasswordState = {
   password: Password;
@@ -24,7 +28,10 @@ const storePassword = (state: PasswordState, action: PasswordActionTypes) => {
   };
 };
 
-const storePasswordConfirmation= (state: PasswordState, action: PasswordActionTypes) => {
+const storePasswordConfirmation = (
+  state: PasswordState,
+  action: PasswordActionTypes
+) => {
   return {
     password: {
       ...state.password,
@@ -45,12 +52,12 @@ const storeHint = (state: PasswordState, action: PasswordActionTypes) => {
 const strategies = {
   [STORE_PASSWORD]: storePassword,
   [STORE_CONFIRMATION_PASSWORD]: storePasswordConfirmation,
-  [STORE_HINT]: storeHint,
+  [STORE_HINT]: storeHint
 };
 
 type TypeOfStrategies = typeof strategies;
 
-const passwordReducer = createReducer <TypeOfStrategies, PasswordState>(
+const passwordReducer = createReducer<TypeOfStrategies, PasswordState>(
   strategies,
   initialState
 );

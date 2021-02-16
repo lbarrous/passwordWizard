@@ -15,7 +15,10 @@ export const Footer = styled.footer<{ isStep3: boolean }>`
   border-style: solid;
 `;
 
-export const Button = styled.button<{ isDisabled?: boolean, isPrimary: boolean }>`
+export const Button = styled.button<{
+  isDisabled?: boolean;
+  isPrimary: boolean;
+}>`
   padding: 1rem 1.5rem 1rem 1.5rem;
   border: 1px;
   font-size: 1rem;
@@ -23,7 +26,7 @@ export const Button = styled.button<{ isDisabled?: boolean, isPrimary: boolean }
   align-items: center;
   border-radius: 3px;
   font-weight: bold;
-  ${props => (getButtonCSS(props.isDisabled, props.isPrimary))}
+  ${props => getButtonCSS(props.isDisabled, props.isPrimary)}
   cursor: ${props => (!!props.isDisabled ? "auto" : "pointer")};
 
   ${props =>

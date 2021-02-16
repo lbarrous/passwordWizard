@@ -13,7 +13,7 @@ describe("PasswordWizardContainer", () => {
   beforeEach(() => {
     wrapper = mount(
       <ReduxProvider>
-        <PasswordWizardContainer/>
+        <PasswordWizardContainer />
       </ReduxProvider>
     );
   });
@@ -25,17 +25,17 @@ describe("PasswordWizardContainer", () => {
   });
   it("shows information step", () => {
     store.dispatch({
-        type: NEXT_STEP
+      type: NEXT_STEP
     });
     wrapper.update();
     expect(wrapper.find(FormStep)).toHaveLength(1);
   });
   it("shows information step", () => {
     store.dispatch({
-        type: NEXT_STEP
+      type: NEXT_STEP
     });
     store.dispatch({
-        type: NEXT_STEP
+      type: NEXT_STEP
     });
     wrapper.update();
     expect(wrapper.find(FeedbackStep)).toHaveLength(1);

@@ -5,7 +5,11 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import StyledContentLoader from "styled-content-loader";
 import { STATUS_OK } from "../../services/api";
-import { nextStep, previousStep, StepActionTypes } from "../../store/actions/Step";
+import {
+  nextStep,
+  previousStep,
+  StepActionTypes
+} from "../../store/actions/Step";
 import { AppState } from "../../store/reducers/rootReducer";
 import { LoadingState, Step, StepState, StepValues } from "../../store/types.d";
 import { ButtonsGroupProps } from "./models";

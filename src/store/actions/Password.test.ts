@@ -1,10 +1,17 @@
-import { storeConfirmationPassword, storeHint, storePassword, STORE_CONFIRMATION_PASSWORD, STORE_HINT, STORE_PASSWORD } from "./Password";
+import {
+  storeConfirmationPassword,
+  storeHint,
+  storePassword,
+  STORE_CONFIRMATION_PASSWORD,
+  STORE_HINT,
+  STORE_PASSWORD
+} from "./Password";
 describe("password actions", () => {
   it("should create an action to store password", () => {
     const password = "password";
     const expectedAction = {
-        type: STORE_PASSWORD,
-        payload: password
+      type: STORE_PASSWORD,
+      payload: password
     };
     expect(storePassword(password)).toEqual(expectedAction);
   });
@@ -14,7 +21,9 @@ describe("password actions", () => {
       type: STORE_CONFIRMATION_PASSWORD,
       payload: confirmation_password
     };
-    expect(storeConfirmationPassword(confirmation_password)).toEqual(expectedAction);
+    expect(storeConfirmationPassword(confirmation_password)).toEqual(
+      expectedAction
+    );
   });
   it("should create an action to store hint", () => {
     const hint = "hint";

@@ -1,7 +1,10 @@
 import { LoadingState } from "../types";
-import { LoadingActionTypes, SET_LOADING, SET_RESPONSE } from './../actions/Loading';
+import {
+  LoadingActionTypes,
+  SET_LOADING,
+  SET_RESPONSE
+} from "./../actions/Loading";
 import { createReducer } from "./reducerFactory";
-
 
 export const initialState: LoadingState = {
   isLoading: false,
@@ -15,7 +18,10 @@ const setLoadingStatus = (state: LoadingState, action: LoadingActionTypes) => {
   };
 };
 
-const setResponseFromServerStatus = (state: LoadingState, action: LoadingActionTypes) => {
+const setResponseFromServerStatus = (
+  state: LoadingState,
+  action: LoadingActionTypes
+) => {
   return {
     ...state,
     responseFromServer: action.payload
@@ -24,12 +30,12 @@ const setResponseFromServerStatus = (state: LoadingState, action: LoadingActionT
 
 const strategies = {
   [SET_LOADING]: setLoadingStatus,
-  [SET_RESPONSE]: setResponseFromServerStatus,
+  [SET_RESPONSE]: setResponseFromServerStatus
 };
 
 type TypeOfStrategies = typeof strategies;
 
-const stepReducer = createReducer <TypeOfStrategies, LoadingState>(
+const stepReducer = createReducer<TypeOfStrategies, LoadingState>(
   strategies,
   initialState
 );

@@ -1,7 +1,7 @@
-import React from 'react';
-import { PasswordWizardContainer } from './containers/PasswordWizardContainer';
+import React from "react";
+import { PasswordWizardContainer } from "./containers/PasswordWizardContainer";
 
 const App = () => {
-    return <PasswordWizardContainer/>
-}
+  return <PasswordWizardContainer />;
+};
 export default App;

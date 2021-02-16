@@ -1,4 +1,9 @@
-import { PASSWORD_MIN_LENGTH, secondaryColor, whiteColor, wizardSteps } from "./../constants";
+import {
+  PASSWORD_MIN_LENGTH,
+  secondaryColor,
+  whiteColor,
+  wizardSteps
+} from "./../constants";
 import { Step, StepValues, ValidationObject } from "./../store/types.d";
 
 const getStepFromNumber = (stepNumber: number) =>
@@ -46,10 +51,7 @@ const validateFormStep = (
 const isPasswordTooShort = (password: string, minLength: number) =>
   password.length < minLength;
 
-const getButtonCSS = (
-  isDisabled: boolean = false,
-  isPrimary: boolean
-) => {
+const getButtonCSS = (isDisabled: boolean = false, isPrimary: boolean) => {
   if (!!isDisabled) {
     return `background-color: #cccccc; color: ${whiteColor};`;
   } else {
@@ -59,5 +61,10 @@ const getButtonCSS = (
   }
 };
 
-export { getStepFromNumber, getProgressStepByStepValue, validateFormStep, isPasswordTooShort, getButtonCSS };
-
+export {
+  getStepFromNumber,
+  getProgressStepByStepValue,
+  validateFormStep,
+  isPasswordTooShort,
+  getButtonCSS
+};

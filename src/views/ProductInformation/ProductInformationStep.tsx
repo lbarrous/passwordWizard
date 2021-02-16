@@ -13,15 +13,11 @@ const ProductInformationStep = () => {
       <Info>
         <ImageContainer>
           <img src={image} alt="Password" />
-          <p>
-            {t("info_1")}
-          </p>
+          <p>{t("info_1")}</p>
         </ImageContainer>
         <ImageContainer>
           <img src={image2} alt="Password2" />
-          <p>
-            {t("info_2")}
-          </p>
+          <p>{t("info_2")}</p>
         </ImageContainer>
       </Info>
       <h3>{t("how_it_works_title")}</h3>

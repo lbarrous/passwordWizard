@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PasswordStrengthLevelsCSS } from './../../constants';
+import { PasswordStrengthLevelsCSS } from "./../../constants";
 
 export const GlobalWrapper = styled.div`
   margin: 2rem 2rem 2rem 0;

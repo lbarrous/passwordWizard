@@ -8,7 +8,7 @@ describe("TriangleStep", () => {
   beforeEach(() => {
     wrapper = mount(
       <ReduxProvider>
-        <TriangleStep/>
+        <TriangleStep />
       </ReduxProvider>
     );
   });

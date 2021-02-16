@@ -9,7 +9,7 @@ const LanguageSelector = () => {
     (language: string) => {
       i18n.changeLanguage(language);
     },
-    [t]
+    [i18n]
   );
 
   return (

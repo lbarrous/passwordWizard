@@ -3,17 +3,17 @@ import React from "react";
 import { ReduxProvider } from "../../TestUtils";
 import LanguageSelector from "./LanguageSelector";
 
-jest.mock('react-i18next', () => ({
-    // this mock makes sure any components using the translate hook can use it without a warning being shown
-    useTranslation: () => {
-      return {
-        t: (str: any) => str,
-        i18n: {
-          changeLanguage: () => new Promise(() => {}),
-        },
-      };
-    },
-  }));
+jest.mock("react-i18next", () => ({
+  // this mock makes sure any components using the translate hook can use it without a warning being shown
+  useTranslation: () => {
+    return {
+      t: (str: any) => str,
+      i18n: {
+        changeLanguage: () => new Promise(() => {})
+      }
+    };
+  }
+}));
 
 describe("LanguageSelector", () => {
   let wrapper: any;
@@ -31,9 +31,25 @@ describe("LanguageSelector", () => {
     expect(wrapper.find("button")).toHaveLength(2);
   });
   it("changes language", () => {
-    wrapper.find("button").first().simulate("click");
-    expect(wrapper.find("button").first().text()).toBe("es");
-    wrapper.find("button").at(1).simulate("click");
-    expect(wrapper.find("button").at(1).text()).toBe("en");
+    wrapper
+      .find("button")
+      .first()
+      .simulate("click");
+    expect(
+      wrapper
+        .find("button")
+        .first()
+        .text()
+    ).toBe("es");
+    wrapper
+      .find("button")
+      .at(1)
+      .simulate("click");
+    expect(
+      wrapper
+        .find("button")
+        .at(1)
+        .text()
+    ).toBe("en");
   });
 });

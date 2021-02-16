@@ -1,4 +1,9 @@
-import { setIsLoading, setResponseFromServer, SET_LOADING, SET_RESPONSE } from "./Loading";
+import {
+  setIsLoading,
+  setResponseFromServer,
+  SET_LOADING,
+  SET_RESPONSE
+} from "./Loading";
 describe("loading actions", () => {
   it("should create an action to set loading status", () => {
     const isLoading = true;

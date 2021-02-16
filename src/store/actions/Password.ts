@@ -1,6 +1,6 @@
-export const STORE_PASSWORD = 'STORE_PASSWORD';
-export const STORE_CONFIRMATION_PASSWORD = 'STORE_CONFIRMATION_PASSWORD';
-export const STORE_HINT = 'STORE_HINT';
+export const STORE_PASSWORD = "STORE_PASSWORD";
+export const STORE_CONFIRMATION_PASSWORD = "STORE_CONFIRMATION_PASSWORD";
+export const STORE_HINT = "STORE_HINT";
 
 interface StorePasswordActionType {
   type: typeof STORE_PASSWORD;
@@ -14,7 +14,10 @@ interface StoreHintdActionType {
   type: typeof STORE_HINT;
   payload: string;
 }
-export type PasswordActionTypes = StorePasswordActionType | StoreConfirmationPasswordActionType | StoreHintdActionType;
+export type PasswordActionTypes =
+  | StorePasswordActionType
+  | StoreConfirmationPasswordActionType
+  | StoreHintdActionType;
 
 /* Action creators */
 
@@ -25,7 +28,9 @@ export const storePassword = (password: string): PasswordActionTypes => {
   };
 };
 
-export const storeConfirmationPassword = (confirmationPassword: string): PasswordActionTypes => {
+export const storeConfirmationPassword = (
+  confirmationPassword: string
+): PasswordActionTypes => {
   return {
     type: STORE_CONFIRMATION_PASSWORD,
     payload: confirmationPassword

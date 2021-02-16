@@ -1,4 +1,4 @@
 export interface PasswordFieldProps {
-    minLength: number;
-    isConfirmation: boolean;
+  minLength: number;
+  isConfirmation: boolean;
 }

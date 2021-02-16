@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { secondaryColor } from './../constants';
+import { secondaryColor } from "./../constants";
 
 export const Container = styled.div`
   color: ${secondaryColor};

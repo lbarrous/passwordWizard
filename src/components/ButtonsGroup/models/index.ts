@@ -1,3 +1,3 @@
 export interface ButtonsGroupProps {
-    stepsValidated: boolean;
-  }
+  stepsValidated: boolean;
+}

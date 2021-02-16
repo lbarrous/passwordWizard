@@ -8,7 +8,14 @@ import { AppState } from "../../store";
 import { PasswordActionTypes, storeHint } from "../../store/actions/Password";
 import { PasswordState } from "../../store/types";
 import { FormStepProps } from "./models";
-import { FormLabel, Hint, HintErrorLabel, HintInput, PasswordErrorLabel, PasswordForm } from "./styles";
+import {
+  FormLabel,
+  Hint,
+  HintErrorLabel,
+  HintInput,
+  PasswordErrorLabel,
+  PasswordForm
+} from "./styles";
 
 const handleHintChange = (
   dispatcher: Dispatch<PasswordActionTypes>,
@@ -28,9 +35,7 @@ const FormStep = (props: FormStepProps) => {
     <StyledStepWrapper>
       <h1>{t("title")}</h1>
       <section>
-        <p>
-          {t("how_it_works_content")}
-        </p>
+        <p>{t("how_it_works_content")}</p>
         <PasswordForm>
           <PasswordField
             minLength={PASSWORD_MIN_LENGTH}
@@ -45,15 +50,11 @@ const FormStep = (props: FormStepProps) => {
           validationObject.associatedErrors.includes(
             "passwords_not_equals"
           ) && (
-            <PasswordErrorLabel>
-              {t("passwords_not_equals")}
-            </PasswordErrorLabel>
+            <PasswordErrorLabel>{t("passwords_not_equals")}</PasswordErrorLabel>
           )}
         {validationObject.associatedErrors &&
           validationObject.associatedErrors.includes("regex_failed") && (
-            <PasswordErrorLabel>
-              {t("regex_failed")}
-            </PasswordErrorLabel>
+            <PasswordErrorLabel>{t("regex_failed")}</PasswordErrorLabel>
           )}
         {validationObject.associatedErrors &&
           validationObject.associatedErrors.includes(
@@ -63,12 +64,8 @@ const FormStep = (props: FormStepProps) => {
               {t("password_not_min_length")}
             </PasswordErrorLabel>
           )}
-        <p>
-          {t("hint")}
-        </p>
-        <FormLabel>
-          {t("hint_label")}
-        </FormLabel>
+        <p>{t("hint")}</p>
+        <FormLabel>{t("hint_label")}</FormLabel>
         <Hint>
           <HintInput
             value={password.hint}
@@ -77,9 +74,7 @@ const FormStep = (props: FormStepProps) => {
         </Hint>
         {validationObject.associatedErrors &&
           validationObject.associatedErrors.includes("hint_exceeds_length") && (
-            <HintErrorLabel>
-              {t("hint_error")}
-            </HintErrorLabel>
+            <HintErrorLabel>{t("hint_error")}</HintErrorLabel>
           )}
       </section>
     </StyledStepWrapper>

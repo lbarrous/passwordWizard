@@ -1,5 +1,5 @@
-export const NEXT_STEP = 'NEXT_STEP';
-export const PREVIOUS_STEP = 'PREVIOUS_STEP';
+export const NEXT_STEP = "NEXT_STEP";
+export const PREVIOUS_STEP = "PREVIOUS_STEP";
 
 interface NextStepActionType {
   type: typeof NEXT_STEP;
@@ -14,12 +14,12 @@ export type StepActionTypes = NextStepActionType | PreviousStepActionType;
 
 export const nextStep = (): StepActionTypes => {
   return {
-    type: NEXT_STEP,
+    type: NEXT_STEP
   };
 };
 
 export const previousStep = (): StepActionTypes => {
   return {
-    type: PREVIOUS_STEP,
+    type: PREVIOUS_STEP
   };
 };

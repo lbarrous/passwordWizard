@@ -22,10 +22,10 @@ describe("ButtonGroup", () => {
   });
   it("has one button if it is step 3", () => {
     store.dispatch({
-        type: NEXT_STEP
+      type: NEXT_STEP
     });
     store.dispatch({
-        type: NEXT_STEP
+      type: NEXT_STEP
     });
     wrapper.update();
     expect(wrapper.find("button")).toHaveLength(1);

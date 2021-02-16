@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor, terciaryColor, whiteColor } from './../../constants';
+import { primaryColor, terciaryColor, whiteColor } from "./../../constants";
 
 export const Wrapper = styled.div`
   display: flex;

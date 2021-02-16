@@ -2,10 +2,7 @@ import { useState } from "react";
 import zxcvbn from "zxcvbn";
 import { isPasswordTooShort } from "../../../utils";
 
-export const usePassword = (
-  currentPassword: string,
-  minLength: number,
-) => {
+export const usePassword = (currentPassword: string, minLength: number) => {
   const [password, setPassword] = useState(currentPassword);
   const [score, setScore] = useState(zxcvbn(password).score as number);
 
@@ -27,6 +24,6 @@ export const usePassword = (
   return {
     handleChange,
     password,
-    score,
+    score
   };
 };

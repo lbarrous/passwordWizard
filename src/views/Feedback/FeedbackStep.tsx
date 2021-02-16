@@ -8,7 +8,10 @@ import { ThunkDispatch } from "redux-thunk";
 import StyledContentLoader from "styled-content-loader";
 import { StyledStepWrapper } from "../../components/StyledStepWrapper/StyledStepWrapper";
 import { AppState } from "../../store";
-import { fetchServerResponse, LoadingActionTypes } from "../../store/actions/Loading";
+import {
+  fetchServerResponse,
+  LoadingActionTypes
+} from "../../store/actions/Loading";
 import { LoadingState } from "../../store/types";
 import { FailedMessage, SuccessMessage } from "./styles";
 
@@ -16,7 +19,7 @@ const renderOKResponse = (t: TFunction) => {
   return (
     <SuccessMessage>
       <h2>
-        {<CheckCircleOutlineIcon fontSize="large"/>}
+        {<CheckCircleOutlineIcon fontSize="large" />}
         {t("success_title")}
       </h2>
       <span>{t("success_content")}</span>

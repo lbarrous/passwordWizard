@@ -1,4 +1,8 @@
-import { STORE_CONFIRMATION_PASSWORD, STORE_HINT, STORE_PASSWORD } from "./../actions/Password";
+import {
+  STORE_CONFIRMATION_PASSWORD,
+  STORE_HINT,
+  STORE_PASSWORD
+} from "./../actions/Password";
 import reducer, { initialState } from "./storePasswordReducer";
 
 describe("password reducer", () => {

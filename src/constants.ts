@@ -1,4 +1,7 @@
-import { ProgressStep, StepStates } from "./components/ProgressBar/models/index";
+import {
+  ProgressStep,
+  StepStates
+} from "./components/ProgressBar/models/index";
 import { StepValues } from "./store/types.d";
 import { validateFormStep } from "./utils";
 
@@ -117,7 +120,7 @@ export const StepIconCSS: { [key: string]: string } = {
 export const TriangleStepCSS: { [key: string]: string } = {
   [StepValues.STEP1]: `margin-left: 45%;`,
   [StepValues.STEP2]: `margin-left: 50%;`,
-  [StepValues.STEP3]: `margin-left: 55%;`,
+  [StepValues.STEP3]: `margin-left: 55%;`
 };
 
 export const primaryColor = "#ff0049";

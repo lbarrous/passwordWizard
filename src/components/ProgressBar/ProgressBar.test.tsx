@@ -22,9 +22,9 @@ describe("StepProgressBar", () => {
   });
   it("shows completed step", () => {
     store.dispatch({
-        type: NEXT_STEP
+      type: NEXT_STEP
     });
-      wrapper.update();
+    wrapper.update();
     expect(wrapper.find("svg")).toHaveLength(1);
   });
 });

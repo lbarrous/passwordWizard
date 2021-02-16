@@ -11,16 +11,23 @@ export const initialState: StepState = {
 const nextStep = (state: StepState, action: StepActionTypes) => {
   return {
     ...state,
-    currentStep: getStepFromNumber(state.currentStep + 1 <= MAX_NUMBER_OF_STEPS ? state.currentStep + 1 : MAX_NUMBER_OF_STEPS)
-
-  }
+    currentStep: getStepFromNumber(
+      state.currentStep + 1 <= MAX_NUMBER_OF_STEPS
+        ? state.currentStep + 1
+        : MAX_NUMBER_OF_STEPS
+    )
+  };
 };
 
 const previousStep = (state: StepState, action: StepActionTypes) => {
   return {
     ...state,
-    currentStep: getStepFromNumber(state.currentStep - 1 >= MIN_NUMBER_OF_STEPS ? state.currentStep - 1 : MIN_NUMBER_OF_STEPS)
-  }
+    currentStep: getStepFromNumber(
+      state.currentStep - 1 >= MIN_NUMBER_OF_STEPS
+        ? state.currentStep - 1
+        : MIN_NUMBER_OF_STEPS
+    )
+  };
 };
 
 const strategies = {
@@ -30,7 +37,7 @@ const strategies = {
 
 type TypeOfStrategies = typeof strategies;
 
-const stepReducer = createReducer <TypeOfStrategies, StepState>(
+const stepReducer = createReducer<TypeOfStrategies, StepState>(
   strategies,
   initialState
 );

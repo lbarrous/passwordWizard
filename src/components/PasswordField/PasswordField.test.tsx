@@ -19,7 +19,7 @@ describe("PasswordField", () => {
 
   it("changes the password", () => {
     const input = wrapper.find("input").first();
-    input.simulate('change', { target: { value: 'Hello' } })
+    input.simulate("change", { target: { value: "Hello" } });
     expect(store.getState().password.password.pass).toBe("Hello");
   });
 });
